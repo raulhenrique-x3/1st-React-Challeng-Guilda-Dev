@@ -1,0 +1,98 @@
+button {
+  border: none;
+  box-shadow: #37373733 0px 2px 8px 0px;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  transition: ease-in-out 0.3s;
+}
+
+.Primary {
+  background-color: #61d2ff;
+}
+
+.Primary:hover {
+  background-color: #009bd9;
+}
+
+.Secondary {
+  background-color: #aaaaaa;
+}
+
+.Secondary:hover {
+  background-color: #797979;
+}
+
+.Success {
+  background-color: #00b60c;
+}
+
+.Success:hover {
+  background-color: #00920a;
+}
+
+.Danger {
+  background-color: #ff2020;
+}
+
+.Danger:hover {
+  background-color: #be0000;
+}
+
+.Warning {
+  background-color: #e0d100;
+}
+
+.Warning:hover {
+  background-color: #bbaf00;
+}
+
+.Info {
+  background-color: #777777;
+}
+
+.Info:hover {
+  background-color: #505050;
+}
+
+.Light {
+  background-color: #fff;
+  color: #000;
+}
+
+.Light:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.Dark {
+  background-color: #222222;
+}
+
+.Dark:hover {
+  background-color: #3e3e3e;
+}
+
+.small {
+  padding: 16px 32px 16px 32px;
+}
+
+.medium {
+  width: 64px;
+  height: 64px;
+  color: #fff;
+}
+
+.large {
+  width: 96px;
+  height: 48px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.round {
+  border-radius: 50%;
+}
