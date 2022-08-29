@@ -27,17 +27,20 @@ export const FinalScreen: React.FC<IScore> = ({ score, questions, myAnswer }) =>
         <h2 className="scored">
           Your scored <br /> {score} / {questions.length}
         </h2>
-        {questions.map((question, i) => (
-          <div className="questionList" key={i}>
-            {myAnswer === question.correct_answer ? (
-              <FaPlus style={{ color: "green" }}>{question.correct_answer}</FaPlus>
-            ) : (
-              <FaMinus style={{ color: "red" }}>{question.correct_answer}</FaMinus>
-            )}
-            <p className="questionListAnswer" dangerouslySetInnerHTML={{ __html: question.question }} />
-          </div>
-        ))}
-
+        <div className="responses">
+          {questions.map((question, i) => (
+            <div className="testing">
+              <div className="questionList" key={i}>
+                {myAnswer === question.correct_answer ? (
+                  <FaPlus className="faPlus"></FaPlus>
+                ) : (
+                  <FaMinus className="faMinus"></FaMinus>
+                )}
+              </div>
+              <p className="questionListAnswer" dangerouslySetInnerHTML={{ __html: question.question }} />
+            </div>
+          ))}
+        </div>
         <Button label={"PLAY AGAIN?"} size={"large"} type={"Primary"} click={Restart} />
       </div>
     </div>

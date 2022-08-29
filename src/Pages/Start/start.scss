@@ -21,16 +21,19 @@
   padding: 64px;
   @media (max-width: 940px) {
     width: 90%;
+    height: 50vh;
     gap: 8px;
     padding: unset;
     text-align: center;
   }
 }
+
 @media (max-width: 940px) {
   .css-1hz0uz6 {
     width: unset !important;
   }
 }
+
 .triviaTitle {
   font-size: 2.5rem;
   font-weight: 600;
