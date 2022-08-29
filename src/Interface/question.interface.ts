@@ -5,4 +5,5 @@ export interface IQuestion {
   category: string;
   incorrect_answers?: React.ReactNode;
   correct_answer?: React.ReactNode;
+  myAnswer?: string;
 }

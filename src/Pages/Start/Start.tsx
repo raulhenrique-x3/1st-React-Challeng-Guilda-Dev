@@ -1,7 +1,7 @@
 import { Select } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../Button/Button";
+import { Button } from "../../Components/Button/Button";
 import "./start.scss";
 
 interface IStart {

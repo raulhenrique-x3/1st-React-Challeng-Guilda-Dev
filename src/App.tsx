@@ -1,19 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { FinalScreen } from "./Components/Final/FinalScreen";
 import { IQuestion } from "./Interface/question.interface";
+import { FinalScreen } from "./Pages/Final/FinalScreen";
 import { StateContext } from "./Context/scoreContext";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Start } from "./Components/Start/Start";
-import { Main } from "./Components/Main/Main";
+import { Start } from "./Pages/Start/Start";
+import { Main } from "./Pages/Main/Main";
+import { API_URL } from "./Const/url";
 import { useState } from "react";
 import routes from "./Const/routes";
 import axios from "axios";
 import "./App.css";
-import { API_URL } from "./Const/url";
 
 function App() {
   const [questions, setQuestions] = useState<IQuestion[]>([]);
   const [error, setError] = useState("");
+  const [myAnswers, setMyAnswers] = useState("");
   const [loading, setLoading] = useState(true);
   const [score, setScore] = useState(0);
 
@@ -34,14 +35,24 @@ function App() {
         <div className="App">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Start getData={GetData} />}></Route>
+              <Route path="/" element={<Start getData={GetData} />} />
               <Route
                 path={routes.Main}
                 element={
-                  <Main setScore={setScore} score={score} error={error} loading={loading} questions={questions} />
+                  <Main
+                    setScore={setScore}
+                    setMyAnswers={setMyAnswers}
+                    score={score}
+                    error={error}
+                    loading={loading}
+                    questions={questions}
+                  />
                 }
-              ></Route>
-              <Route path={routes.Result} element={<FinalScreen score={score} />}></Route>
+              />
+              <Route
+                path={routes.Result}
+                element={<FinalScreen myAnswer={myAnswers} questions={questions} score={score} />}
+              />
             </Routes>
           </BrowserRouter>
         </div>

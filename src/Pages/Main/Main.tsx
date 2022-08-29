@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Spinner } from "@chakra-ui/react";
-import { Button } from "../Button/Button";
+import { Button } from "../../Components/Button/Button";
 import { IQuestion } from "../../Interface/question.interface";
 import "./main.scss";
 import { useNavigate } from "react-router-dom";
@@ -11,9 +11,10 @@ interface IMain {
   loading: React.ReactNode;
   setScore: Function;
   score: number;
+  setMyAnswers: Function;
 }
 
-export const Main: React.FC<IMain> = ({ questions, error, loading, setScore, score }) => {
+export const Main: React.FC<IMain> = ({ questions, error, loading, setScore, score, setMyAnswers }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const navigate = useNavigate();
 
@@ -33,17 +34,17 @@ export const Main: React.FC<IMain> = ({ questions, error, loading, setScore, sco
   }
 
   const correctAnswer = questions[currentQuestion].correct_answer;
-
   function isTrue() {
     if (correctAnswer === "True") {
       setCurrentQuestion(currentQuestion + 1);
       setScore(score + 1);
+      setMyAnswers("True");
     }
     if (correctAnswer === "False") {
       setCurrentQuestion(currentQuestion + 1);
       setScore(score);
+      setMyAnswers("False");
     }
-
     if (questions.length - 1 === currentQuestion) {
       navigate("/Result");
     }
@@ -53,10 +54,12 @@ export const Main: React.FC<IMain> = ({ questions, error, loading, setScore, sco
     if (correctAnswer === "False") {
       setCurrentQuestion(currentQuestion + 1);
       setScore(score + 1);
+      setMyAnswers("False");
     }
     if (correctAnswer === "True") {
       setCurrentQuestion(currentQuestion + 1);
       setScore(score);
+      setMyAnswers("True");
     }
     if (questions.length - 1 === currentQuestion) {
       navigate("/Result");
